@@ -20,7 +20,7 @@ class AwsDeviceConfig:
         self._log = logging.getLogger(__name__)
 
         aws_shadow_client.connect()
-        self._thing_shadow = aws_shadow_client.createShadowHandlerWithName(thing_name, True)
+        self._thing_shadow = aws_shadow_client.createShadowHandlerWithName(thing_name, False)
         self._thing_shadow.shadowRegisterDeltaCallback(self._shadow_delta_callback)
 
         # THIS IS IMPORTANT FOR SOME REASON
